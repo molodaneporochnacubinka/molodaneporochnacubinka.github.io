@@ -5,6 +5,7 @@
         });
     }
 
+    
     function makeTabs(node) {
         let selected = node.querySelector('.section__tab_active').dataset.id;
         const tabs = node.querySelectorAll('.section__tab');
@@ -16,9 +17,7 @@
             const newPanel = node.querySelector(`.section__panel[data-id=${newId}]`);
             const oldTab = node.querySelector('.section__tab_active');
             const oldPanel = node.querySelector('.section__panel:not(.section__panel_hidden)');
-
-            selected = newId;
-
+    
             oldTab.classList.remove('section__tab_active');
             oldTab.setAttribute('aria-selected', 'false');
             oldTab.removeAttribute('tabindex');
@@ -28,15 +27,13 @@
             newTab.focus({
                 preventScroll: true
             });
-
+    
             oldPanel.classList.add('section__panel_hidden');
             oldPanel.setAttribute('aria-hidden', 'true');
             newPanel.classList.remove('section__panel_hidden');
             newPanel.setAttribute('aria-hidden', 'false');
-
-            select.value = newId;
         }
-
+    
         select.addEventListener('input', () => {
             selectTab(select.value);
         });
@@ -80,14 +77,12 @@
     }
 
     function makeMenu(node) {
-        let expanded = false;
         const links = document.querySelector('.header__links');
 
         node.addEventListener('click', () => {
-            expanded = !expanded;
-            node.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-            node.querySelector('.header__menu-text').textContent = expanded ? 'Закрыть меню' : 'Открыть меню';
-            links.classList.toggle('header__links_opened', expanded);
+            node.setAttribute('aria-expanded', 'true');
+            node.querySelector('.header__menu-text').textContent = 'Закрыть меню';
+            links.classList.toggle('header__links_opened', true);
             links.classList.add('header__links-toggled');
         });
     }
