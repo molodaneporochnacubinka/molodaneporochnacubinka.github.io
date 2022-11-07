@@ -80,10 +80,7 @@
         const links = document.querySelector('.header__links');
 
         node.addEventListener('click', () => {
-            node.setAttribute('aria-expanded', 'true');
-            node.querySelector('.header__menu-text').textContent = 'Закрыть меню';
-            links.classList.toggle('header__links_opened', true);
-            links.classList.add('header__links-toggled');
+            links.classList.toggle('header__links_opened');
         });
     }
 
